@@ -457,6 +457,7 @@ main {
 }
 
 .footer .social .list {
+    display: flex;
     gap: 16px;
 }
 
