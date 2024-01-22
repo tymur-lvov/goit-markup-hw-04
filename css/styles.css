@@ -318,10 +318,10 @@ main {
     margin: 0;
 }
 
-.social .list {
+.social.list {
     display: flex;
-    gap: 24px;
     justify-content: center;
+    gap: 24px;
 }
 
 .social .item {
