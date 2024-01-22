@@ -68,6 +68,7 @@ main {
 /* Header */
 .header {
     border-bottom: 1px solid var(--cornflower);
+    box-shadow: 0px 1px 6px 0px rgba(46, 47, 66, 0.08), 0px 1px 1px 0px rgba(46, 47, 66, 0.16), 0px 2px 1px 0px rgba(46, 47, 66, 0.08);
 }
 
 .header .container {
@@ -89,7 +90,6 @@ main {
     line-height: 1.17;
     letter-spacing: 0.54px;
     text-transform: uppercase;
-
     margin-right: 76px;
 }
 
@@ -110,21 +110,24 @@ main {
     font-weight: 500;
     line-height: 1.5;
     letter-spacing: 0.32px;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navigation .link:not(.logo):hover,
 .navigation .link:not(.logo):focus {
     color: var(--ocean);
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navigation .current {
     color: var(--ocean);
+    position: relative;
 }
 
 .navigation .current::after {
     display: block;
     content: "";
+    left: 0;
+    bottom: -1px;
     width: 48px;
     height: 4px;
     border-radius: 2px;
@@ -147,12 +150,12 @@ main {
     font-style: normal;
     line-height: 1.5;
     letter-spacing: 0.32px;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .address .link:hover,
 .address .link:focus {
     color: var(--ocean);
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
@@ -165,7 +168,6 @@ main {
     line-height: 1.11;
     letter-spacing: 0.72px;
     text-transform: capitalize;
-
     margin-bottom: 72px;
 }
 
@@ -175,7 +177,6 @@ main {
     font-weight: 500;
     line-height: 1.2;
     letter-spacing: 0.4px;
-
     margin-bottom: 8px;
 }
 
@@ -192,10 +193,11 @@ main {
     background-color: var(--navy-blue);
     background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url(/images/hero-banner.jpg);
     background-repeat: no-repeat;
-
+    background-position: center;
+    background-size: cover;
     padding: 188px 0;
     margin: 0 auto;
-    width: 1440px;
+    max-width: 1440px;
 }
 
 .hero .title {
@@ -228,13 +230,13 @@ main {
     border: none;
     border-radius: 4px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero .button:hover,
 .hero .button:focus {
     background-color: var(--ocean);
     border-color: var(--ocean);
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
@@ -266,20 +268,15 @@ main {
 }
 
 .features .thumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 264px;
     height: 112px;
     border-radius: 4px;
     border: 1px solid var(--light-slate);
     background-color: var(--cloud);
     margin-bottom: 8px;
-    position: relative;
-}
-
-.features .icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 
@@ -331,22 +328,27 @@ main {
 .social .item {
     width: 40px;
     height: 40px;
-    border-radius: 50%;
-    background-color: var(--iris);
-    position: relative;
     cursor: pointer;
 }
 
-.social .item:hover {
+.social .link {
+    width: 100%;
+    height: 100%;
+    background-color: var(--iris);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social .link:hover,
+.social .link:focus {
     background-color: var(--ocean);
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social .icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    fill: var(--cloud);
 }
 
 
@@ -364,11 +366,11 @@ main {
 
 .portfolio .item {
     flex-basis: calc((100% - 48px) / 3);
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio .item:hover {
     box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08), 0px 1px 1px 0px rgba(46, 47, 66, 0.16), 0px 1px 6px 0px rgba(46, 47, 66, 0.08);
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio .card-content {
@@ -388,19 +390,20 @@ main {
     position: absolute;
     color: var(--cloud);
     background-color: var(--iris);
+    font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.32px;
-    padding: 40px 32px 164px 32px;
+    padding: 40px 32px;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     transform: translateY(100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio .item:hover .overlay {
     transform: translateY(0);
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
@@ -412,6 +415,7 @@ main {
 
 .footer .container {
     display: flex;
+    align-items: baseline
 }
 
 .footer .logo.link {
@@ -457,7 +461,27 @@ main {
     gap: 16px;
 }
 
-.footer .social .item:hover {
+.footer .item {
+    width: 40px;
+    height: 40px;
+}
+
+.footer .social-link {
+    width: 100%;
+    height: 100%;
+    background-color: var(--iris);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer .social-link:hover,
+.footer .social-link:focus {
     background-color: var(--green);
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer .icon {
+    fill: var(--cloud);
 }
