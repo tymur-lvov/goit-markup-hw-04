@@ -127,7 +127,6 @@ main {
     display: block;
     content: "";
     left: 0;
-    bottom: -1px;
     width: 48px;
     height: 4px;
     border-radius: 2px;
