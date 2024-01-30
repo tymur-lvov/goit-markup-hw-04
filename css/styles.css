@@ -123,6 +123,7 @@ main {
     position: relative;
 }
 
+/* Underline */
 .navigation .current::after {
     display: block;
     content: "";
